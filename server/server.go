@@ -32,6 +32,7 @@ func (s *Server) Run() {
 
 		routes.Auth(v1.Group("/auth"))
 		routes.User(v1.Group("/user"))
+		routes.BodyParts(v1.Group("/BodyPart"))
 	}
 	log.Print("Server is on port:", s.port)
 	log.Fatal(router.Run(":" + s.port))

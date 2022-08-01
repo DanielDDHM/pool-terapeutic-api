@@ -107,7 +107,16 @@ func EditUser() gin.HandlerFunc {
 			return
 		}
 
-		update := bson.M{"name": user.Name, "email": user.Email, "password": user.Password}
+		update := bson.M{
+			"name":      user.Name,
+			"email":     user.Email,
+			"password":  user.Password,
+			"photo":     user.Photo,
+			"phone":     user.Phone,
+			"isadmin":   user.IsAdmin,
+			"birthdate": user.BirthDate,
+		}
+
 		result, err := users.UpdateOne(ctx, bson.M{"id": objId}, bson.M{"$set": update})
 
 		if err != nil {

@@ -1,4 +1,4 @@
-package generic
+package constant
 
 type UserResponse struct {
 	Status  int                    `json:"status"`
